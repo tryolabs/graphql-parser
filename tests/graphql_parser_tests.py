@@ -11,3 +11,4 @@ def test_number():
 
 def test_arguments():
     assert parse("1,2,3", Arguments) == ['1', '2', '3']
+    assert parse("1,2 ,3 ", Arguments) == ['1', '2', '3']
