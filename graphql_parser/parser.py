@@ -7,11 +7,11 @@ This module implements the parser.
 """
 
 import re
-from pypeg2 import name, csl
+from pypeg2 import name, csl, List
 
 number = re.compile(r"[+-]?(\d)+")
 
-class Arguments(object):
+class Arguments(List):
     """Arguments to a call."""
     grammar = csl(number)
 
