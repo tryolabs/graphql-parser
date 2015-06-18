@@ -6,7 +6,18 @@ This module implements the parser.
 :license:   MIT
 """
 
-from pypeg2 import name
+import re
+from pypeg2 import name, csl
+
+number = re.compile(r"\d+")
+
+class Arguments(object):
+    """Arguments to a call."""
+    grammar = csl(number)
+
+class Call(object):
+    """A function call."""
+    grammar = name(), "(", Arguments, ")", Block
 
 class Node(object):
     """Base class of node objects."""
@@ -17,12 +28,6 @@ class Field(Node):
 
 class Value(object):
     pass
-
-class Id(object):
-    grammar = name(), ":", Value
-
-class Function(object):
-    grammar = name(), "(", Id, ")"
 
 class Block(object):
     """A curly brace delimited block."""
