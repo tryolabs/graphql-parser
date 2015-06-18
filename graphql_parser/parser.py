@@ -9,7 +9,7 @@ This module implements the parser.
 import re
 from pypeg2 import name, csl
 
-number = re.compile(r"\d+")
+number = re.compile(r"[+-]?(\d)+")
 
 class Arguments(object):
     """Arguments to a call."""
