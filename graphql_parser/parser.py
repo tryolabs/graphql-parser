@@ -11,14 +11,6 @@ from pypeg2 import name, csl
 
 number = re.compile(r"\d+")
 
-class Arguments(object):
-    """Arguments to a call."""
-    grammar = csl(number)
-
-class Call(object):
-    """A function call."""
-    grammar = name(), "(", Arguments, ")", Block
-
 class Node(object):
     """Base class of node objects."""
 
@@ -26,8 +18,13 @@ class Field(Node):
     """A field name in a query."""
     grammar = name()
 
-class Value(object):
-    pass
+class Arguments(object):
+    """Arguments to a call."""
+    grammar = csl(number)
+
+class Call(Node):
+    """A function call."""
+    grammar = csl(name(), separator='.'), "(", Arguments, ")", Block
 
 class Block(object):
     """A curly brace delimited block."""
