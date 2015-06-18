@@ -23,6 +23,18 @@ class Block(List):
     """A curly brace delimited block."""
     grammar = '{', csl([Field]), '}'
 
-#class Call(Node):
-#    """A function call."""
-#    grammar = csl(name(), separator='.'), '(', Arguments, ')', Block
+class CallList(List):
+    grammar = csl(Field, separator='.')
+
+class Call(List):
+    """A function call."""
+    grammar = CallList, '(', Arguments, ')', Block
+
+    def names(self):
+        return self[0]
+
+    def arguments(self):
+        return self[1]
+
+    def body(self):
+        return self[2]
