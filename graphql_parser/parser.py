@@ -15,17 +15,14 @@ class Arguments(List):
     """Arguments to a call."""
     grammar = csl(number)
 
-class Node(object):
-    """Base class of node objects."""
-
-class Field(Node):
+class Field():
     """A field name in a query."""
     grammar = name()
 
-class Block(object):
+class Block(List):
     """A curly brace delimited block."""
-    grammar = '{', csl(Node), '}'
+    grammar = '{', csl([Field]), '}'
 
-class Call(Node):
-    """A function call."""
-    grammar = csl(name(), separator='.'), '(', Arguments, ')', Block
+#class Call(Node):
+#    """A function call."""
+#    grammar = csl(name(), separator='.'), '(', Arguments, ')', Block
