@@ -9,7 +9,7 @@ This module implements the parser.
 import re
 from pypeg2 import name, csl, List
 
-number = re.compile(r"[+-]?(\d)+")
+number = re.compile(r'[+-]?(\d)+')
 
 class Arguments(List):
     """Arguments to a call."""
@@ -24,8 +24,8 @@ class Field(Node):
 
 class Block(object):
     """A curly brace delimited block."""
-    grammar = "{", csl(Node), "}"
+    grammar = '{', csl(Node), '}'
 
 class Call(Node):
     """A function call."""
-    grammar = csl(name(), separator='.'), "(", Arguments, ")", Block
+    grammar = csl(name(), separator='.'), '(', Arguments, ')', Block
