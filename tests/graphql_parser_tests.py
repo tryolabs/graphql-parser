@@ -2,7 +2,7 @@
 from nose.tools import *
 from pypeg2 import parse
 
-from graphql_parser.parser import number, Arguments
+from graphql_parser.parser import number, Arguments, Field
 
 def test_number():
     assert parse("1", number) == '1'
@@ -12,3 +12,6 @@ def test_number():
 def test_arguments():
     assert parse("1,2,3", Arguments) == ['1', '2', '3']
     assert parse("1,2 ,3 ", Arguments) == ['1', '2', '3']
+
+def test_field():
+    assert parse("test", Field).name == 'test'
