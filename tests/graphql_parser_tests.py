@@ -32,4 +32,4 @@ def test_multi_call():
     assert [f.name for f in call.body()] == ['a']
 
 def test_all():
-    block = parse('{a, test.method(1) { b }}', Block)
+    block = parse('{a, test.method(1) { b }, c}', Block)
