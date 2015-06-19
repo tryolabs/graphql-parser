@@ -25,7 +25,11 @@ def test_call():
     assert call.arguments() == ['3', '4']
     assert [f.name for f in call.body()] == ['a', 'b', 'c']
 
+def test_multi_call():
     call = parse('test.method(1) { a }', Call)
     assert [f.name for f in call.names()] == ['test', 'method']
     assert call.arguments() == ['1']
     assert [f.name for f in call.body()] == ['a']
+
+def test_all():
+    block = parse('{a, test.method(1) { b }}', Block)
