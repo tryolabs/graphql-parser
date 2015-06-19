@@ -38,4 +38,4 @@ class Block(List):
     """A curly brace delimited block."""
     grammar = '{', csl([Field, Call]), '}'
 
-Call.grammar = [CallList, '(', Arguments, ')', Block]
+Call.grammar = CallList, '(', Arguments, ')', Block
