@@ -6,7 +6,7 @@ Transform the result of the parser into a dictionary.
 :license:   MIT
 """
 
-from graphql_parser.parser import Field
+from graphql_parser.parser import Call
 
 
 def transform_block(block):
@@ -18,10 +18,10 @@ def transform_block(block):
 
 def transform_child(child):
     # Is it a field name or a call?
-    if isinstance(child, Field):
-        return child.name
-    else:
+    if isinstance(child, Call):
         return transform_call(child)
+    else:
+        return str(child.name)
 
 
 def transform_call(call):
