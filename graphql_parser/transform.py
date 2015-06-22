@@ -8,6 +8,7 @@ Transform the result of the parser into a dictionary.
 
 from graphql_parser.parser import Field
 
+
 def transform_block(block):
     return {
         'type': 'block',
@@ -17,8 +18,8 @@ def transform_block(block):
 
 def transform_child(child):
     # Is it a field name or a call?
-    if child is Field:
-        return child.name()
+    if isinstance(child, Field):
+        return child.name
     else:
         return transform_call(child)
 

@@ -2,6 +2,8 @@
 from nose.tools import *
 from pypeg2 import parse
 
+import graphql_parser as gqlp
+
 from graphql_parser.parser import number, Arguments, Field, Block, Call
 
 def test_number():
@@ -33,3 +35,6 @@ def test_multi_call():
 
 def test_all():
     block = parse('{a, test.method(1) { b }, c}', Block)
+
+def test_transform():
+    print(gqlp.parse('{ a, b }'))
