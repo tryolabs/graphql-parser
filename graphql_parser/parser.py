@@ -17,7 +17,7 @@ number = re.compile(r'[+-]?(\d)+')
 
 class Arguments(List):
     """Arguments to a call."""
-    grammar = csl(number)
+    grammar = csl(number, separator=',')
 
 class CallList(List):
     grammar = csl(Field, separator='.')
@@ -36,6 +36,6 @@ class Call(List):
 
 class Block(List):
     """A curly brace delimited block."""
-    grammar = '{', csl([Field, Call]), '}'
+    grammar = '{', csl([Field, Call], separator=','), '}'
 
 Call.grammar = CallList, '(', Arguments, ')', Block
