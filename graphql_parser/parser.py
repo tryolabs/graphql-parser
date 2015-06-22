@@ -36,6 +36,6 @@ class Call(List):
 
 class Block(List):
     """A curly brace delimited block."""
-    grammar = '{', csl([Field, Call], separator=','), '}'
+    grammar = '{', csl([Call, Field], separator=','), '}'
 
 Call.grammar = CallList, '(', Arguments, ')', Block
