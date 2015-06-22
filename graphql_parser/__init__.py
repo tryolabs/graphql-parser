@@ -5,4 +5,4 @@ from graphql_parser.transform import transform_block
 
 
 def parse(string):
-    transform_block(pypeg2.parse(string, Block))
+    return transform_block(pypeg2.parse(string, Block))
