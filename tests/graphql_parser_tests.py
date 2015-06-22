@@ -37,4 +37,4 @@ def test_all():
     block = parse('{a, test.method(1) { b }, c}', Block)
 
 def test_transform():
-    print(gqlp.parse('{ a, b }'))
+    assert gqlp.parse('{ a, b, c }') == { 'type': 'block', 'children': 'a b c'.split() }
