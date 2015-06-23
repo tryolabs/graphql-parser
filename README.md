@@ -5,6 +5,26 @@ This is a Python parser for React's GraphQL.
 Lacking a specification, the parser was built to parse code along the lines of
 examples and other implementations of GraphQL.
 
+# Usage
+
+```python
+import pprint 
+from graphql_parser import parse
+
+QUERY = '''{
+  user(1) {
+    name,
+    email,
+    profile_pic.size(64) {
+      date_added
+    }
+  }
+}
+'''
+
+parse(QUERY)
+```
+
 # License
 
 Copyright (c) 2015 [Tryolabs][tryo] SRL.
