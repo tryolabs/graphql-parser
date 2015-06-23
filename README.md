@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/tryolabs/graphql-parser.svg?branch=master)](https://travis-ci.org/tryolabs/graphql-parser)
 
-This is a Python parser for React's GraphQL.
+This is a Python parser for [React's][react] [GraphQL][graphql].
 
 Lacking a specification, the parser was built to parse code along the lines of
 examples and other implementations of GraphQL.
@@ -63,4 +63,6 @@ Copyright (c) 2015 [Tryolabs][tryo] SRL.
 
 Released under the MIT license.
 
+[react]: http://facebook.github.io/react/
+[graphql]: https://facebook.github.io/react/blog/2015/05/01/graphql-introduction.html
 [tryo]: http://tryolabs.com/
