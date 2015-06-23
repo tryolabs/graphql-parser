@@ -30,7 +30,7 @@ def transform_call(call):
     """Transform a call into a dictionary."""
     return {
         'type': 'call',
-        'chain': call.names(),
-        'arguments': call.arguments(),
+        'chain': [str(fn.name) for fn in call.names()],
+        'arguments': [str(arg) for arg in call.arguments()],
         'body': transform_block(call.body())
     }
