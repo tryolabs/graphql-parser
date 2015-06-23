@@ -8,7 +8,6 @@ examples and other implementations of GraphQL.
 # Usage
 
 ```python
-import pprint 
 from graphql_parser import parse
 
 QUERY = '''{
@@ -23,6 +22,37 @@ QUERY = '''{
 '''
 
 parse(QUERY)
+```
+
+Produces:
+
+```python
+{
+  'type': 'block',
+  'children': [
+    {
+      'type': 'call',
+      'chain': ['user'],
+      'arguments': ['1'],
+      'body': {
+        'type': 'block',
+        'children': [
+          'name',
+          'email',
+          {
+            'type': 'call',
+            'chain': ['profile_pic', 'size'],
+            'arguments': ['64'],
+            'body': {
+              'type': 'block',
+              'children': ['date_added']
+            },
+          }
+        ]
+      }
+    }
+  ]
+}
 ```
 
 # License
