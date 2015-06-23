@@ -10,6 +10,7 @@ from graphql_parser.parser import Call
 
 
 def transform_block(block):
+    """Transform a block and its children into a dictionary."""
     return {
         'type': 'block',
         'children': [transform_child(child) for child in block]
@@ -17,6 +18,7 @@ def transform_block(block):
 
 
 def transform_child(child):
+    """Transform an element of a block."""
     # Is it a field name or a call?
     if isinstance(child, Call):
         return transform_call(child)
@@ -25,6 +27,7 @@ def transform_child(child):
 
 
 def transform_call(call):
+    """Transform a call into a dictionary."""
     return {
         'type': 'call',
         'chain': call.names(),
