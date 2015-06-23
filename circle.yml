@@ -1,0 +1,7 @@
+machine:
+    python:
+        version: 3.4.2
+
+test:
+  override:
+    - nosetests
