@@ -1,5 +1,7 @@
 # graphql-parser
 
+[![Build Status](https://img.shields.io/circleci/project/tryolabs/graphql-parser.svg)](https://circleci.com/gh/tryolabs/graphql-parser)
+
 This is a Python parser for React's GraphQL.
 
 Lacking a specification, the parser was built to parse code along the lines of
