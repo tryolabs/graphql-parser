@@ -60,3 +60,5 @@ Produces:
 Copyright (c) 2015 [Tryolabs][tryo] SRL.
 
 Released under the MIT license.
+
+[tryo]: http://tryolabs.com/
